@@ -6,7 +6,7 @@ Publish the contents of this directory at the root of the website repository.
 In Settings → Pages, select **Deploy from a branch**, branch **main**, folder **/(root)**.
 Future pushes to `main` will update the site automatically.
 
-Website: https://memfold.github.io
+Website: https://MemFold.github.io
 
 Repository: https://github.com/MemFold/memfold.github.io
 
