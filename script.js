@@ -49,3 +49,22 @@ let scheduled = false;
 addEventListener('scroll', () => {if (!scheduled) {scheduled = true; requestAnimationFrame(() => {updatePosition(); scheduled = false;});}}, {passive:true});
 addEventListener('resize', updatePosition);
 updatePosition();
+
+const copyBibtex = document.querySelector('#copy-bibtex');
+copyBibtex.addEventListener('click', async () => {
+  const code = document.querySelector('#bibtex-code');
+  const status = document.querySelector('#copy-status');
+  try {
+    await navigator.clipboard.writeText(code.textContent);
+    copyBibtex.textContent = 'Copied';
+    status.textContent = 'BibTeX copied to clipboard.';
+    setTimeout(() => { copyBibtex.textContent = 'Copy BibTeX'; }, 2000);
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(code);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    status.textContent = 'BibTeX selected. Use your keyboard to copy it.';
+  }
+});

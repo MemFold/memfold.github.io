@@ -86,3 +86,8 @@ article section>figure,.paired-figures{width:min(1224px,calc(100vw - 292px))}
 .resource-links a.button:hover{color:var(--accent)}
 .resource-links .arxiv-mark{filter:brightness(0);width:20px;height:20px;object-fit:contain}
 @media(max-width:600px){.hero .resource-links{gap:22px}.hero .resource-links .button{border:0;padding:6px 0;font-size:13px}}
+
+.citation-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px}.citation-heading h2{margin:0}
+#copy-bibtex{border:0;background:transparent;color:var(--accent);font-size:12px;font-weight:600;padding:10px 0;cursor:pointer}
+.bibtex{margin:0;padding:24px;background:#f0f1ef;border-radius:4px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--ink)}
+@media(max-width:600px){.bibtex{padding:18px;font-size:11px}}
