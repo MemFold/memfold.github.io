@@ -62,3 +62,23 @@ additional visible interface labels.
 The desktop cover fills the first viewport. The article begins below the cover
 divider. Institutional logos follow the supplied TAPS-DLM website layout;
 logo provenance is recorded in `assets/logos/README.md`.
+
+## Typography
+
+Article copy and lists retain Georgia / Times New Roman / serif. Subheadings,
+captions, and generated SVG labels use Arial / Helvetica / sans-serif.
+The cover retains its display type.
+
+| Role | Desktop | Mobile |
+| --- | --- | --- |
+| Body and lists | 18 px / 1.8 | 17 px / 1.8 |
+| Section heading | 32 px, weight 600 | 28 px, weight 600 |
+| Subsection heading | 20 px, weight 600 | 20 px, weight 600 |
+| Figure caption | 14 px / 1.65 | 14 px / 1.65 |
+| Figure number / section label | 12 px, weight 600 | 12 px, weight 600 |
+
+Plot typography is defined once in the `TYPE` mapping in `render_figures.py`:
+14 pt panel titles, 12 pt axis labels, 11 pt ticks / annotations / legends,
+and 10 pt legend group labels. SVG sizes scale with their responsive canvases.
+The case figure uses 18 px response text on desktop and 17 px on mobile.
+The framework retains the original artwork's typography.

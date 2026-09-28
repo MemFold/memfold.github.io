@@ -54,7 +54,7 @@ def render(mobile=False):
     width=360 if mobile else 1200
     pad=8 if mobile else 8
     column=width-2*pad if mobile else (width-2*pad-2*48)/3
-    size=16 if mobile else 18;lineheight=25 if mobile else 28
+    size=17 if mobile else 18;lineheight=27 if mobile else 29
     font=ImageFont.truetype(str(FONT),size)
     bold=ImageFont.truetype(str(BOLD),size)
     parts=[]
@@ -72,9 +72,9 @@ def render(mobile=False):
             color=MUTED if line.startswith('… response') else BLUE if emphasis else INK
             text(x,y,line,fill=color);y+=lineheight
         return y
-    text(pad,18,'User preference:',size=12,fill=MUTED,weight='bold')
+    text(pad,18,'User preference:',size=14,fill=MUTED,weight='bold')
     y=paragraph(pad,46,data['preference'],width-2*pad)
-    text(pad,y+16,'Query:',size=12,fill=MUTED,weight='bold')
+    text(pad,y+16,'Query:',size=14,fill=MUTED,weight='bold')
     y=paragraph(pad,y+44,data['query'],width-2*pad)
     top=y+36
     positions=[]
@@ -86,7 +86,7 @@ def render(mobile=False):
             body_y=paragraph(x,body_y,para,column,emphasis=i==2 and ('journal' in para or 'measurements' in para))+16
         positions.append((x,body_y,response,i))
         if mobile:
-            text(x,body_y+4,response['verdict'],size=13,fill=BLUE if i==2 else MUTED,weight='bold')
+            text(x,body_y+4,response['verdict'],size=14,fill=BLUE if i==2 else MUTED,weight='bold')
             text(x,body_y+27,response['tokens'],size=12,fill=MUTED)
             top=body_y+90
     if mobile:height=top-48
@@ -94,7 +94,7 @@ def render(mobile=False):
         footer=max(p[1] for p in positions)+4
         for x,_,response,i in positions:
             text(x,footer,response['verdict'],size=14,fill=BLUE if i==2 else MUTED,weight='bold')
-            text(x,footer+25,response['tokens'],size=13,fill=MUTED)
+            text(x,footer+25,response['tokens'],size=12,fill=MUTED)
         height=footer+45
     svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif"><title id="title">Personalization case from paper Figure 6</title><desc id="desc">Original response text, reflowed for the MemFold website. Three methods answer the same fitness question.</desc>'+''.join(parts)+'</svg>\n'
     target=ROOT/'assets'/('personalization-case-mobile.svg' if mobile else 'personalization-case.svg')

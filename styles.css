@@ -91,3 +91,28 @@ article section>figure,.paired-figures{width:min(1224px,calc(100vw - 292px))}
 #copy-bibtex{border:0;background:transparent;color:var(--accent);font-size:12px;font-weight:600;padding:10px 0;cursor:pointer}
 .bibtex{margin:0;padding:24px;background:#f0f1ef;border-radius:4px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--ink)}
 @media(max-width:600px){.bibtex{padding:18px;font-size:11px}}
+
+/* Editorial type system: one body family, explicit roles and shared spacing. */
+:root{--font-body:Arial,Helvetica,sans-serif;--text-body:18px;--text-section:32px;--text-subsection:20px;--text-caption:14px;--text-meta:12px;--body-leading:1.8}
+article{font-family:var(--font-body)}
+article h2{font-family:var(--font-body);font-size:var(--text-section);font-weight:600;line-height:1.25;letter-spacing:-.7px;margin:0 0 24px}
+article h3{font-family:var(--font-body);font-size:var(--text-subsection);font-weight:600;line-height:1.4;letter-spacing:-.2px;margin:32px 0 14px}
+article p,article .steps{font-family:var(--font-body);font-size:var(--text-body);font-weight:400;line-height:var(--body-leading);letter-spacing:normal;color:var(--ink)}
+article p{margin:0 0 24px}
+article .steps{margin:0 0 28px;padding-left:24px}
+article .steps li{padding:0 0 14px 6px}
+article strong{font-weight:600}
+article figcaption,.paired-figures figcaption{font-family:var(--font-body);font-size:var(--text-caption);font-weight:400;line-height:1.65;letter-spacing:normal;color:var(--muted)}
+article figcaption>span{font-family:var(--font-body);font-size:var(--text-meta);font-weight:600;letter-spacing:.5px;white-space:nowrap}
+article .section-label{font-family:var(--font-body);font-size:var(--text-meta);font-weight:600;letter-spacing:1.2px;margin-bottom:16px}
+article .result-insight{font-family:var(--font-body);font-size:15px;line-height:1.7}
+article .table-footnote,article .table-hint{font-family:var(--font-body);font-size:13px;line-height:1.65}
+article .closing h3{font-family:var(--font-body);font-size:var(--text-subsection);font-weight:600;line-height:1.4;margin:0 0 14px}
+article .closing p,article .contact p{font-family:var(--font-body);font-size:16px;line-height:1.7}
+article .contact h3{font-family:var(--font-body);font-size:var(--text-subsection);line-height:1.4;margin:0 0 12px}
+.citation-heading h2{margin:0}
+@media(max-width:760px){:root{--text-body:17px;--text-section:28px;--text-subsection:20px}article section{margin-bottom:56px}article figcaption,.paired-figures figcaption{font-size:var(--text-caption)}}
+
+/* Article prose retains its original serif face; figures use sans-serif. */
+article p,article .steps{font-family:Georgia,'Times New Roman',serif}
+article .result-insight,article .table-footnote,article .table-hint,article .closing p,article .contact p{font-family:Arial,Helvetica,sans-serif}
