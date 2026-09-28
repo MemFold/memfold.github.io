@@ -65,9 +65,9 @@ logo provenance is recorded in `assets/logos/README.md`.
 
 ## Typography
 
-Article copy and lists retain Georgia / Times New Roman / serif. Subheadings,
-captions, and generated SVG labels use Arial / Helvetica / sans-serif.
-The cover retains its display type.
+The cover title, article copy, lists, section headings, and subheadings all use
+Georgia / Times New Roman / serif. Captions, table metadata, and generated SVG
+labels retain Arial / Helvetica / sans-serif.
 
 | Role | Desktop | Mobile |
 | --- | --- | --- |

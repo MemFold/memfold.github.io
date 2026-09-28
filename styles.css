@@ -116,3 +116,8 @@ article .contact h3{font-family:var(--font-body);font-size:var(--text-subsection
 /* Article prose retains its original serif face; figures use sans-serif. */
 article p,article .steps{font-family:Georgia,'Times New Roman',serif}
 article .result-insight,article .table-footnote,article .table-hint,article .closing p,article .contact p{font-family:Arial,Helvetica,sans-serif}
+
+/* Match all article prose and headings to the cover title. */
+:root{--font-prose:Georgia,'Times New Roman',serif}
+#hero-title,article h2,article h3,article p,article .steps,article .closing h3,article .closing p{font-family:var(--font-prose)}
+article .table-hint,article .table-footnote,article .result-insight{font-family:Arial,Helvetica,sans-serif}
