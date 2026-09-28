@@ -1,0 +1,36 @@
+{
+  "preference": "“I dislike using wearable technology and fitness trackers.”",
+  "query": "“Can you recommend some effective ways for me to monitor my fitness progress?”",
+  "responses": [
+    {
+      "label": "(a) GRPO",
+      "paragraphs": [
+        "… Keep a record of your weight, body measurements, heart rate, and workout performance.",
+        "Use a Fitness Tracker: Wearables like Fitbit or Apple Watch can monitor steps, calories burned, and sleep quality, providing real-time feedback.",
+        "… response continues until the generation limit."
+      ],
+      "verdict": "Incorrect: violates preference",
+      "tokens": "300 answer tokens"
+    },
+    {
+      "label": "(b) OPSD",
+      "paragraphs": [
+        "… Track your workouts, measure body metrics, take photos, and set SMART goals.",
+        "Use Wearable Technology: Devices like smartwatches or fitness trackers can monitor heart rate, steps, calories burned, and sleep quality.",
+        "… response continues until the generation limit."
+      ],
+      "verdict": "Incorrect: violates preference",
+      "tokens": "300 answer tokens"
+    },
+    {
+      "label": "(c) MemFold",
+      "paragraphs": [
+        "Track your workouts with a fitness app or journal, and record your strength and endurance gains.",
+        "Take regular body measurements and use a progress photo log to monitor changes in body composition.",
+        "Set specific, measurable goals, stay consistent, and adjust your plan as needed."
+      ],
+      "verdict": "Correct: respects preference",
+      "tokens": "96 answer tokens"
+    }
+  ]
+}

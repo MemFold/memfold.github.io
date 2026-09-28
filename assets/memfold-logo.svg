@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1343 1024" role="img" aria-labelledby="title">
+<title id="title">MemFold logo</title>
+<defs>
+<linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#15d9ef"/><stop offset="1" stop-color="#00bfe9"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00baff"/><stop offset="1" stop-color="#0080ed"/></linearGradient>
+<linearGradient id="deep" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#007bed"/><stop offset="1" stop-color="#0066d8"/></linearGradient>
+</defs>
+<path fill="url(#deep)" d="M438 717 C494 690 534 657 576 620 L576 744 Q576 817 506 817 L453 817 Q438 817 438 800Z"/>
+<path fill="url(#deep)" d="M511 271 C573 268 601 319 646 377 L729 478 C759 474 820 354 900 290 C953 247 1007 233 1058 238 C1158 243 1227 311 1231 396 L1250 396 Q1275 397 1258 416 L1218 467 Q1202 489 1184 468 L1143 421 Q1128 401 1152 397 L1173 397 C1162 332 1113 294 1056 297 C984 295 944 343 927 400 C904 479 907 490 866 538 L779 640 C744 680 713 674 684 638 L567 500 C527 456 458 458 443 414 Q428 389 438 337 Q451 274 511 271Z"/>
+<path fill="url(#deep)" d="M973 364 C1016 361 1049 404 1049 449 L1049 798 Q1049 817 1032 817 L991 817 Q909 817 909 746 L909 505 C909 459 925 419 938 384 Q949 364 973 364Z"/>
+<path fill="url(#cyan)" d="M91 210 C252 200 353 283 408 384 C436 436 468 463 524 480 C586 500 624 548 650 589 C579 544 554 532 486 520 C405 505 368 470 330 426 C279 367 183 365 104 367 C47 368 19 340 20 290 Q22 217 91 210Z"/>
+<path fill="url(#blue)" d="M98 413 C176 402 256 425 324 472 C395 522 432 539 500 535 C567 532 613 550 650 589 C595 556 558 566 508 581 C413 608 355 598 274 578 C211 563 164 557 104 565 C50 571 21 550 20 508 Q19 431 98 413Z"/>
+<path fill="url(#deep)" d="M110 607 C193 593 241 610 292 618 C390 640 451 597 509 577 C570 553 615 566 650 589 C603 581 574 611 540 644 C465 717 394 744 310 743 C234 743 179 768 110 768 C49 770 20 748 20 702 L20 682 Q24 619 110 607Z"/>
+<rect x="1068" y="489" width="251" height="107" rx="53.5" fill="url(#cyan)"/>
+<rect x="1068" y="603" width="251" height="105" rx="52.5" fill="url(#blue)"/>
+<rect x="1068" y="715" width="251" height="102" rx="51" fill="url(#deep)"/>
+</svg>
