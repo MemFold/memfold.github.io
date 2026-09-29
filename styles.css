@@ -143,3 +143,6 @@ thead th{background:transparent}
 .byline .authors+.contribution{margin-top:8px}
 .results-panel{overflow:visible}
 .results-toolbar select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer .wordmark img{width:28px;height:28px}
+footer .updated{font-size:11px;color:var(--muted);white-space:nowrap}
+@media(max-width:600px){footer .updated{order:4;flex-basis:100%}}
