@@ -26,7 +26,7 @@ const dialog = document.querySelector('#image-dialog');
 const expandedImage = document.querySelector('#expanded-image');
 document.querySelectorAll('[data-zoom]').forEach(button => {
   button.addEventListener('click', () => {
-    expandedImage.src = button.querySelector('img').currentSrc || button.dataset.zoom;
+    expandedImage.src = button.dataset.current || button.querySelector('img').currentSrc || button.dataset.zoom;
     expandedImage.alt = button.querySelector('img').alt;
     dialog.showModal();
   });
@@ -68,3 +68,119 @@ copyBibtex.addEventListener('click', async () => {
     status.textContent = 'BibTeX selected. Use your keyboard to copy it.';
   }
 });
+
+// Chart reveal: inline each plot SVG and sweep its data layer in from left to right.
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const ease = t => t < .5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+let chartCount = 0;
+
+function chartSource(button) {
+  const img = button.querySelector('img');
+  for (const source of button.querySelectorAll('source')) {
+    if (!source.media || matchMedia(source.media).matches) return source.getAttribute('srcset');
+  }
+  return img.getAttribute('src');
+}
+
+// Matplotlib reuses ids across files; prefix them so several inline SVGs can coexist.
+function scopeIds(text, prefix) {
+  const ids = [...text.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
+  for (const id of new Set(ids)) {
+    text = text.split(`id="${id}"`).join(`id="${prefix}${id}"`).split(`#${id})`).join(`#${prefix}${id})`).split(`"#${id}"`).join(`"#${prefix}${id}"`);
+  }
+  return text;
+}
+
+function prepareReveal(svg, prefix) {
+  const width = svg.viewBox.baseVal.width;
+  const height = svg.viewBox.baseVal.height;
+  const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS(SVG_NS, 'defs'), svg.firstChild);
+  const sweeps = [];
+  svg.querySelectorAll('g[id*="axes_"]').forEach((axes, index) => {
+    const lines = [...axes.querySelectorAll('g[id*="line2d_"]')].filter(group => {
+      const path = group.querySelector(':scope > path[clip-path]');
+      return path && (path.getAttribute('d').match(/L/g) || []).length >= 2;
+    });
+    const data = [...lines, ...axes.querySelectorAll(':scope > g[id*="PathCollection_"]')];
+    if (!data.length) return;
+    const clipId = (lines[0]?.querySelector('path') || data[0].querySelector('[clip-path]'))?.getAttribute('clip-path')?.match(/#([^)]+)/)?.[1];
+    const plot = clipId && svg.getElementById(clipId)?.querySelector('rect');
+    const top = plot ? plot.y.baseVal.value : 0;
+    const left = plot ? plot.x.baseVal.value - 10 : 0;
+    // Value and series labels sit inside or beside the plot; the panel title sits above it.
+    const labels = [...axes.querySelectorAll(':scope > g[id*="text_"]')].filter(label => {
+      const box = label.getBBox();
+      return box.y + box.height > top;
+    });
+    const clip = document.createElementNS(SVG_NS, 'clipPath');
+    clip.id = `${prefix}reveal-${index}`;
+    const rect = document.createElementNS(SVG_NS, 'rect');
+    rect.setAttribute('x', left); rect.setAttribute('y', 0);
+    rect.setAttribute('width', 0); rect.setAttribute('height', height);
+    clip.append(rect); defs.append(clip);
+    const layer = document.createElementNS(SVG_NS, 'g');
+    layer.setAttribute('clip-path', `url(#${clip.id})`);
+    axes.insertBefore(layer, data[0]);
+    layer.append(...data, ...labels);
+    sweeps.push({rect, span: width - left, delay: sweeps.length * 220});
+  });
+  return sweeps;
+}
+
+function playReveal(sweeps, duration = 1300) {
+  const start = performance.now();
+  const frame = now => {
+    let running = false;
+    for (const {rect, span, delay} of sweeps) {
+      const t = Math.min(1, Math.max(0, (now - start - delay) / duration));
+      rect.setAttribute('width', span * ease(t));
+      if (t < 1) running = true;
+    }
+    if (running) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
+
+const revealObserver = 'IntersectionObserver' in window && new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    revealObserver.unobserve(entry.target);
+    entry.target.dataset.revealed = '';
+    playReveal(entry.target.sweeps);
+  }
+}, {threshold: .4});
+
+async function inlineChart(button) {
+  const url = chartSource(button);
+  if (button.dataset.current === url) return;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return;
+    const prefix = `c${++chartCount}-`;
+    const svg = new DOMParser().parseFromString(scopeIds(await response.text(), prefix), 'image/svg+xml').documentElement;
+    if (svg.nodeName !== 'svg') return;
+    svg.removeAttribute('width'); svg.removeAttribute('height');
+    svg.classList.add('chart-svg');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', button.querySelector('img').alt);
+    button.querySelector('svg.chart-svg')?.remove();
+    button.append(svg);
+    button.classList.add('chart-inline');
+    button.dataset.current = url;
+    const wasRevealed = 'revealed' in button.dataset;
+    const sweeps = prepareReveal(svg, prefix);
+    if (reducedMotion.matches || wasRevealed || !revealObserver) {
+      sweeps.forEach(({rect, span}) => rect.setAttribute('width', span));
+    } else {
+      button.sweeps = sweeps;
+      revealObserver.observe(button);
+    }
+  } catch {
+    // Keep the static image if the SVG cannot be inlined.
+  }
+}
+
+const charts = [...document.querySelectorAll('[data-chart]')];
+charts.forEach(inlineChart);
+matchMedia('(max-width: 600px)').addEventListener('change', () => charts.forEach(inlineChart));
