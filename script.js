@@ -1,6 +1,6 @@
 'use strict';
 const methods = ['Full Text', 'xRAG', 'AutoCompressor', 'MemGen', 'GRPO', 'OPSD', 'MemFold'];
-// Accuracy values transcribed from arxiv/main_table.tex. Null denotes no valid outputs.
+// Accuracy values verified against Table 1 of arXiv:2609.36435v1 (2026-09-29). Null denotes no valid outputs.
 const results = {
   '3b': {name: 'Qwen2.5-3B-Instruct', rows: [[46,21.9,12.9,26.6],[36,55.8,8.5,10.2],[32,30.5,null,null],[54,66.1,13.3,3.8],[68,58.4,11.3,26],[54,29.6,12.8,26.2],[70,88.4,19.9,32.4]]},
   '7b': {name: 'Qwen2.5-7B-Instruct', rows: [[60,24,14,25.4],[62,64.9,10.9,12.2],[66,30.7,null,9.6],[76,78.5,14.1,11],[70,62.2,14.1,25],[64,47.2,13.2,25],[88,94.4,14.1,36.8]]},

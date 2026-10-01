@@ -26,7 +26,9 @@ contents to the website repository root; every push deploys automatically.
 
 ## Sources
 
-Article text is adapted from the current manuscript. Benchmark values come from
+Article text and results are verified against the published paper,
+[arXiv:2609.36435v1](https://arxiv.org/abs/2609.36435v1) (September 29, 2026).
+Website figure numbers match the paper. Benchmark values come from
 `arxiv/main_table.tex`; ablations from `arxiv/5_ablation.tex`; the case and memory
 analysis from `arxiv/5_discussion.tex`. Experimental plots are redrawn as page-styled SVG using the unchanged data in
 `tools/figure-data.json`. `tools/render_figures.py` generates desktop and mobile
@@ -35,8 +37,12 @@ page, text remains vector text, and mobile layouts stack the training panels.
 The framework diagram retains its PNG rendering, as requested. The logo uses
 SVG paths and gradients; figure zooms use the same SVG files as the article. The full manuscript PDF is not included in the public website.
 
-The code link follows the manuscript's current repository URL. Update it when
-the code repository moves. arXiv and Hugging Face remain disabled placeholders until their URLs are available.
+Resource URLs match the links embedded in the published PDF:
+- Paper: https://arxiv.org/abs/2609.36435
+- Code: https://github.com/Johnny221B/memfold
+- Model: https://huggingface.co/Johnny221B/memfold
+
+The citation includes the arXiv identifier, subject class, and DOI.
 
 ## Figure fidelity and responsive presentation
 
