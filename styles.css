@@ -146,3 +146,59 @@ thead th{background:transparent}
 footer .wordmark img{width:28px;height:28px}
 footer .updated{font-size:11px;color:var(--muted);white-space:nowrap}
 @media(max-width:600px){footer .updated{order:4;flex-basis:100%}}
+
+/* Homepage hero: left-aligned copy and an animated memory illustration. */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr);gap:24px 42px;align-items:center;max-width:1320px;min-height:calc(100svh - 86px);padding:48px 48px 44px;text-align:left;justify-content:initial}
+.hero-copy{min-width:0}
+.hero #hero-title{margin:0 0 22px;text-align:left}
+.hero .paper-name{font-size:clamp(58px,6vw,82px);margin:0 0 18px}
+.hero .paper-title{font-size:clamp(27px,2.8vw,38px);line-height:1.18;max-width:none;margin:0;letter-spacing:-.8px}
+.hero .hero-deck{margin:0;text-align:left;font-size:21px}
+.hero .hero-intro{margin:16px 0 22px;max-width:620px}
+.hero .resource-links{justify-content:flex-start}
+.hero .byline{grid-column:1/-1;width:100%;max-width:none;margin:8px 0 0;text-align:left}
+.hero .authors,.hero .contribution{text-align:left}
+.hero .byline .author-line{display:inline}
+.hero .affiliations{max-width:none;margin:24px 0 0;justify-content:start}
+.hero .affil-item{justify-content:flex-start;text-align:left}
+.hero-visual{width:100%;max-width:522px;justify-self:end}
+.memory-animation{display:block;width:100%;height:auto;overflow:visible;font-family:Arial,Helvetica,sans-serif}
+.memory-label{font-size:17px;font-weight:700;fill:#607184}
+.memory-vector-label{font-size:24px;font-weight:700;fill:#2167cf}
+.memory-answer-label{font-size:21px;font-weight:700;fill:#172b43}
+.memory-arrow{fill:none;stroke:#2167cf;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.memory-history rect{transform-box:fill-box;transform-origin:left center;animation:history-reveal .85s ease-out both}
+.memory-history rect:nth-child(2){animation-delay:.15s}
+.memory-history rect:nth-child(3){animation-delay:.3s}
+.memory-arrow-in{animation:memory-flow .65s .75s ease-out both}
+.memory-vectors rect{animation:vector-reveal .7s var(--reveal-delay) ease-out both}
+.memory-vector-label{animation:vector-reveal .7s 2.25s ease-out both}
+.memory-arrow-out{animation:memory-flow .65s 2.8s ease-out both}
+.memory-answer{animation:answer-reveal .8s 3.2s ease-out both}
+@keyframes history-reveal{from{opacity:0;transform:scaleX(.2)}to{opacity:1;transform:scaleX(1)}}
+@keyframes vector-reveal{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes memory-flow{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes answer-reveal{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1000px){.hero{padding:38px 28px;gap:24px;grid-template-columns:minmax(0,1.3fr) minmax(280px,1fr)}.hero .paper-title{font-size:29px}.hero .affiliations{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;min-height:0;padding:36px 22px;gap:28px}.hero .paper-name{font-size:62px}.hero .paper-title{font-size:30px}.hero .hero-deck{font-size:19px}.hero-visual{justify-self:center;max-width:410px}.hero .byline{margin:0}.hero .affiliations{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}.hero .affil-item>span{font-size:12px}.hero .affil-item>img{width:32px;height:34px}}
+@media(max-width:400px){.hero .affiliations{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.memory-animation *{animation:none!important}}
+
+/* Keep authors and affiliations within the left-hand hero column. */
+.hero .hero-copy .byline{margin-top:28px;font-size:15px;line-height:1.8}
+.hero .hero-copy .affiliations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px;margin-top:22px}
+.hero .hero-copy .affil-item{min-width:0;gap:9px}
+.hero .hero-copy .affil-item>span{font-size:12px;line-height:1.5}
+.hero .hero-copy .affil-item>img{width:34px;height:36px;object-fit:contain}
+.hero .hero-copy .contribution{font-size:11px;line-height:1.8}
+@media(max-width:1000px) and (min-width:761px){.hero .hero-copy .affiliations{grid-template-columns:1fr}}
+@media(max-width:400px){.hero .hero-copy .affiliations{grid-template-columns:1fr}}
+
+/* Balance the title/byline column with the visible illustration bounds. */
+@media(min-width:761px){
+ .hero{align-items:stretch;align-content:center;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px}
+ .hero-copy{display:flex;flex-direction:column;justify-content:space-between}
+ .hero .hero-copy .byline{margin-top:24px}
+ .hero-visual{max-width:none;align-self:stretch;display:flex;align-items:stretch}
+ .memory-animation{height:100%;min-height:450px;aspect-ratio:430/450}
+}

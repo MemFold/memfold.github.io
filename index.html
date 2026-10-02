@@ -25,9 +25,8 @@
 </header>
 <main id="top">
   <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
     <h1 id="hero-title"><span class="paper-name">MemFold<span class="sr-only">:</span></span><span class="paper-title">Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization</span></h1>
-    <p class="hero-deck">Compact memory. <em>Personalized answers.</em></p>
-    <p class="hero-intro">Remembering a user is not the same as acting on what they said. MemFold compresses a user’s history into a fixed set of soft vectors and trains the reader on its own answers, so the memory is judged by the responses it supports.</p>
     <div class="resource-links" id="resources"><a class="button" href="https://arxiv.org/abs/2609.36435"><img class="arxiv-mark" src="assets/logos/arxiv.svg" alt="" width="20" height="20"> arXiv</a><a class="button" href="https://github.com/Johnny221B/memfold"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.08c-3.12.68-3.78-1.32-3.78-1.32-.51-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.49-.28-5.1-1.25-5.1-5.54 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.05c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg> GitHub</a><a class="button" href="https://huggingface.co/Johnny221B/memfold"><img src="assets/logos/huggingface.svg" alt="" width="20" height="20">Hugging Face</a></div>
     <div class="byline"><p class="authors"><span class="author-line"><span class="author">Jingxuan Wu<sup>2,*</sup></span>, <span class="author">Yuzhe Yang<sup>1,*</sup></span>, <span class="author">Yiqiao Huang<sup>3</sup></span>, <span class="author">Chengzhi Liu<sup>1</sup></span>, <span class="author">Qingni Wang<sup>1</sup></span>,</span> <span class="author-line"><span class="author">Chengxuan Qian<sup>1</sup></span>, <span class="author">Shutong Wu<sup>4</sup></span>, <span class="author">Jiawei Zhang<sup>4</sup></span>, <span class="author">Xin Eric Wang<sup>1</sup></span></span></p><p class="contribution">* Equal contribution<span class="sep" aria-hidden="true">·</span>Correspondence: <a href="mailto:jingxwu@unc.edu">jingxwu@unc.edu</a>, <a href="mailto:yuzheyang@ucsb.edu">yuzheyang@ucsb.edu</a></p><div class="affiliations">
 <div class="affil-item"><sup>1</sup><img src="assets/logos/ucsb.png" alt="UC Santa Barbara logo"><span>University of California,<br>Santa Barbara</span></div>
@@ -35,6 +34,286 @@
 <div class="affil-item"><sup>3</sup><img src="assets/logos/harvard.png" alt="Harvard University logo"><span>Harvard University</span></div>
 <div class="affil-item"><sup>4</sup><img src="assets/logos/uw-madison.svg" alt="UW–Madison logo"><span>University of Wisconsin<br>–Madison</span></div>
 </div></div>
+    </div>
+    <div class="hero-visual">
+      <svg class="memory-animation" viewBox="45 27 432 451" role="img" aria-labelledby="memory-title memory-desc">
+        <title id="memory-title">From long user history to personalized answers</title>
+        <desc id="memory-desc">A long user history is compressed into soft vectors that support personalized answers.</desc>
+        <rect x="46" y="28" width="430" height="430" rx="34" fill="#edf3fb"/>
+        <text x="76" y="72" class="memory-label">LONG USER HISTORY</text>
+        <g class="memory-history" fill="#b6c9e2">
+          <rect x="76" y="91" width="367" height="9" rx="4.5"/>
+          <rect x="76" y="111" width="322" height="8" rx="4"/>
+          <rect x="76" y="130" width="343" height="8" rx="4"/>
+        </g>
+        <path class="memory-arrow memory-arrow-in" d="M261 150 V172 M254 164 L261 173 L268 164"/>
+        <g class="memory-vectors" fill="#2167cf">
+          <rect x="173.0" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.250s" fill="#8bb4ed"/>
+          <rect x="184.8" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.267s"/>
+          <rect x="196.6" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.284s"/>
+          <rect x="208.4" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.301s"/>
+          <rect x="220.2" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.318s" fill="#8bb4ed"/>
+          <rect x="232.0" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.335s"/>
+          <rect x="243.8" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.352s"/>
+          <rect x="255.6" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.369s"/>
+          <rect x="267.4" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.386s" fill="#8bb4ed"/>
+          <rect x="279.2" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.403s"/>
+          <rect x="291.0" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.420s"/>
+          <rect x="302.8" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.437s"/>
+          <rect x="314.6" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.454s" fill="#8bb4ed"/>
+          <rect x="326.4" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.471s"/>
+          <rect x="338.2" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.488s"/>
+          <rect x="350.0" y="195.0" width="8" height="5" rx=".6" style="--reveal-delay:1.505s"/>
+          <rect x="173.0" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.305s"/>
+          <rect x="184.8" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.322s"/>
+          <rect x="196.6" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.339s"/>
+          <rect x="208.4" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.356s" fill="#8bb4ed"/>
+          <rect x="220.2" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.373s"/>
+          <rect x="232.0" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.390s"/>
+          <rect x="243.8" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.407s"/>
+          <rect x="255.6" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.424s" fill="#8bb4ed"/>
+          <rect x="267.4" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.441s"/>
+          <rect x="279.2" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.458s"/>
+          <rect x="291.0" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.475s"/>
+          <rect x="302.8" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.492s" fill="#8bb4ed"/>
+          <rect x="314.6" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.509s"/>
+          <rect x="326.4" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.526s"/>
+          <rect x="338.2" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.543s"/>
+          <rect x="350.0" y="202.6" width="8" height="5" rx=".6" style="--reveal-delay:1.560s" fill="#8bb4ed"/>
+          <rect x="173.0" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.360s"/>
+          <rect x="184.8" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.377s"/>
+          <rect x="196.6" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.394s" fill="#8bb4ed"/>
+          <rect x="208.4" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.411s"/>
+          <rect x="220.2" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.428s"/>
+          <rect x="232.0" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.445s"/>
+          <rect x="243.8" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.462s" fill="#8bb4ed"/>
+          <rect x="255.6" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.479s"/>
+          <rect x="267.4" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.496s"/>
+          <rect x="279.2" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.513s"/>
+          <rect x="291.0" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.530s" fill="#8bb4ed"/>
+          <rect x="302.8" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.547s"/>
+          <rect x="314.6" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.564s"/>
+          <rect x="326.4" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.581s"/>
+          <rect x="338.2" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.598s" fill="#8bb4ed"/>
+          <rect x="350.0" y="210.2" width="8" height="5" rx=".6" style="--reveal-delay:1.615s"/>
+          <rect x="173.0" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.415s"/>
+          <rect x="184.8" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.432s" fill="#8bb4ed"/>
+          <rect x="196.6" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.449s"/>
+          <rect x="208.4" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.466s"/>
+          <rect x="220.2" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.483s"/>
+          <rect x="232.0" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.500s" fill="#8bb4ed"/>
+          <rect x="243.8" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.517s"/>
+          <rect x="255.6" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.534s"/>
+          <rect x="267.4" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.551s"/>
+          <rect x="279.2" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.568s" fill="#8bb4ed"/>
+          <rect x="291.0" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.585s"/>
+          <rect x="302.8" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.602s"/>
+          <rect x="314.6" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.619s"/>
+          <rect x="326.4" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.636s" fill="#8bb4ed"/>
+          <rect x="338.2" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.653s"/>
+          <rect x="350.0" y="217.8" width="8" height="5" rx=".6" style="--reveal-delay:1.670s"/>
+          <rect x="173.0" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.470s" fill="#8bb4ed"/>
+          <rect x="184.8" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.487s"/>
+          <rect x="196.6" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.504s"/>
+          <rect x="208.4" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.521s"/>
+          <rect x="220.2" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.538s" fill="#8bb4ed"/>
+          <rect x="232.0" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.555s"/>
+          <rect x="243.8" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.572s"/>
+          <rect x="255.6" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.589s"/>
+          <rect x="267.4" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.606s" fill="#8bb4ed"/>
+          <rect x="279.2" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.623s"/>
+          <rect x="291.0" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.640s"/>
+          <rect x="302.8" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.657s"/>
+          <rect x="314.6" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.674s" fill="#8bb4ed"/>
+          <rect x="326.4" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.691s"/>
+          <rect x="338.2" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.708s"/>
+          <rect x="350.0" y="225.4" width="8" height="5" rx=".6" style="--reveal-delay:1.725s"/>
+          <rect x="173.0" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.525s"/>
+          <rect x="184.8" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.542s"/>
+          <rect x="196.6" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.559s"/>
+          <rect x="208.4" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.576s" fill="#8bb4ed"/>
+          <rect x="220.2" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.593s"/>
+          <rect x="232.0" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.610s"/>
+          <rect x="243.8" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.627s"/>
+          <rect x="255.6" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.644s" fill="#8bb4ed"/>
+          <rect x="267.4" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.661s"/>
+          <rect x="279.2" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.678s"/>
+          <rect x="291.0" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.695s"/>
+          <rect x="302.8" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.712s" fill="#8bb4ed"/>
+          <rect x="314.6" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.729s"/>
+          <rect x="326.4" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.746s"/>
+          <rect x="338.2" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.763s"/>
+          <rect x="350.0" y="233.0" width="8" height="5" rx=".6" style="--reveal-delay:1.780s" fill="#8bb4ed"/>
+          <rect x="173.0" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.580s"/>
+          <rect x="184.8" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.597s"/>
+          <rect x="196.6" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.614s" fill="#8bb4ed"/>
+          <rect x="208.4" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.631s"/>
+          <rect x="220.2" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.648s"/>
+          <rect x="232.0" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.665s"/>
+          <rect x="243.8" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.682s" fill="#8bb4ed"/>
+          <rect x="255.6" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.699s"/>
+          <rect x="267.4" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.716s"/>
+          <rect x="279.2" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.733s"/>
+          <rect x="291.0" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.750s" fill="#8bb4ed"/>
+          <rect x="302.8" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.767s"/>
+          <rect x="314.6" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.784s"/>
+          <rect x="326.4" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.801s"/>
+          <rect x="338.2" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.818s" fill="#8bb4ed"/>
+          <rect x="350.0" y="240.6" width="8" height="5" rx=".6" style="--reveal-delay:1.835s"/>
+          <rect x="173.0" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.635s"/>
+          <rect x="184.8" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.652s" fill="#8bb4ed"/>
+          <rect x="196.6" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.669s"/>
+          <rect x="208.4" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.686s"/>
+          <rect x="220.2" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.703s"/>
+          <rect x="232.0" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.720s" fill="#8bb4ed"/>
+          <rect x="243.8" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.737s"/>
+          <rect x="255.6" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.754s"/>
+          <rect x="267.4" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.771s"/>
+          <rect x="279.2" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.788s" fill="#8bb4ed"/>
+          <rect x="291.0" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.805s"/>
+          <rect x="302.8" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.822s"/>
+          <rect x="314.6" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.839s"/>
+          <rect x="326.4" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.856s" fill="#8bb4ed"/>
+          <rect x="338.2" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.873s"/>
+          <rect x="350.0" y="248.2" width="8" height="5" rx=".6" style="--reveal-delay:1.890s"/>
+          <rect x="173.0" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.690s" fill="#8bb4ed"/>
+          <rect x="184.8" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.707s"/>
+          <rect x="196.6" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.724s"/>
+          <rect x="208.4" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.741s"/>
+          <rect x="220.2" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.758s" fill="#8bb4ed"/>
+          <rect x="232.0" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.775s"/>
+          <rect x="243.8" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.792s"/>
+          <rect x="255.6" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.809s"/>
+          <rect x="267.4" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.826s" fill="#8bb4ed"/>
+          <rect x="279.2" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.843s"/>
+          <rect x="291.0" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.860s"/>
+          <rect x="302.8" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.877s"/>
+          <rect x="314.6" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.894s" fill="#8bb4ed"/>
+          <rect x="326.4" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.911s"/>
+          <rect x="338.2" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.928s"/>
+          <rect x="350.0" y="255.8" width="8" height="5" rx=".6" style="--reveal-delay:1.945s"/>
+          <rect x="173.0" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.745s"/>
+          <rect x="184.8" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.762s"/>
+          <rect x="196.6" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.779s"/>
+          <rect x="208.4" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.796s" fill="#8bb4ed"/>
+          <rect x="220.2" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.813s"/>
+          <rect x="232.0" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.830s"/>
+          <rect x="243.8" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.847s"/>
+          <rect x="255.6" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.864s" fill="#8bb4ed"/>
+          <rect x="267.4" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.881s"/>
+          <rect x="279.2" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.898s"/>
+          <rect x="291.0" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.915s"/>
+          <rect x="302.8" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.932s" fill="#8bb4ed"/>
+          <rect x="314.6" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.949s"/>
+          <rect x="326.4" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.966s"/>
+          <rect x="338.2" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:1.983s"/>
+          <rect x="350.0" y="263.4" width="8" height="5" rx=".6" style="--reveal-delay:2.000s" fill="#8bb4ed"/>
+          <rect x="173.0" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.800s"/>
+          <rect x="184.8" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.817s"/>
+          <rect x="196.6" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.834s" fill="#8bb4ed"/>
+          <rect x="208.4" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.851s"/>
+          <rect x="220.2" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.868s"/>
+          <rect x="232.0" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.885s"/>
+          <rect x="243.8" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.902s" fill="#8bb4ed"/>
+          <rect x="255.6" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.919s"/>
+          <rect x="267.4" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.936s"/>
+          <rect x="279.2" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.953s"/>
+          <rect x="291.0" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.970s" fill="#8bb4ed"/>
+          <rect x="302.8" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:1.987s"/>
+          <rect x="314.6" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:2.004s"/>
+          <rect x="326.4" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:2.021s"/>
+          <rect x="338.2" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:2.038s" fill="#8bb4ed"/>
+          <rect x="350.0" y="271.0" width="8" height="5" rx=".6" style="--reveal-delay:2.055s"/>
+          <rect x="173.0" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.855s"/>
+          <rect x="184.8" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.872s" fill="#8bb4ed"/>
+          <rect x="196.6" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.889s"/>
+          <rect x="208.4" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.906s"/>
+          <rect x="220.2" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.923s"/>
+          <rect x="232.0" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.940s" fill="#8bb4ed"/>
+          <rect x="243.8" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.957s"/>
+          <rect x="255.6" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.974s"/>
+          <rect x="267.4" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:1.991s"/>
+          <rect x="279.2" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.008s" fill="#8bb4ed"/>
+          <rect x="291.0" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.025s"/>
+          <rect x="302.8" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.042s"/>
+          <rect x="314.6" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.059s"/>
+          <rect x="326.4" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.076s" fill="#8bb4ed"/>
+          <rect x="338.2" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.093s"/>
+          <rect x="350.0" y="278.6" width="8" height="5" rx=".6" style="--reveal-delay:2.110s"/>
+          <rect x="173.0" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:1.910s" fill="#8bb4ed"/>
+          <rect x="184.8" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:1.927s"/>
+          <rect x="196.6" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:1.944s"/>
+          <rect x="208.4" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:1.961s"/>
+          <rect x="220.2" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:1.978s" fill="#8bb4ed"/>
+          <rect x="232.0" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:1.995s"/>
+          <rect x="243.8" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.012s"/>
+          <rect x="255.6" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.029s"/>
+          <rect x="267.4" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.046s" fill="#8bb4ed"/>
+          <rect x="279.2" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.063s"/>
+          <rect x="291.0" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.080s"/>
+          <rect x="302.8" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.097s"/>
+          <rect x="314.6" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.114s" fill="#8bb4ed"/>
+          <rect x="326.4" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.131s"/>
+          <rect x="338.2" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.148s"/>
+          <rect x="350.0" y="286.2" width="8" height="5" rx=".6" style="--reveal-delay:2.165s"/>
+          <rect x="173.0" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:1.965s"/>
+          <rect x="184.8" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:1.982s"/>
+          <rect x="196.6" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:1.999s"/>
+          <rect x="208.4" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.016s" fill="#8bb4ed"/>
+          <rect x="220.2" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.033s"/>
+          <rect x="232.0" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.050s"/>
+          <rect x="243.8" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.067s"/>
+          <rect x="255.6" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.084s" fill="#8bb4ed"/>
+          <rect x="267.4" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.101s"/>
+          <rect x="279.2" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.118s"/>
+          <rect x="291.0" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.135s"/>
+          <rect x="302.8" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.152s" fill="#8bb4ed"/>
+          <rect x="314.6" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.169s"/>
+          <rect x="326.4" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.186s"/>
+          <rect x="338.2" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.203s"/>
+          <rect x="350.0" y="293.8" width="8" height="5" rx=".6" style="--reveal-delay:2.220s" fill="#8bb4ed"/>
+          <rect x="173.0" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.020s"/>
+          <rect x="184.8" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.037s"/>
+          <rect x="196.6" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.054s" fill="#8bb4ed"/>
+          <rect x="208.4" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.071s"/>
+          <rect x="220.2" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.088s"/>
+          <rect x="232.0" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.105s"/>
+          <rect x="243.8" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.122s" fill="#8bb4ed"/>
+          <rect x="255.6" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.139s"/>
+          <rect x="267.4" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.156s"/>
+          <rect x="279.2" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.173s"/>
+          <rect x="291.0" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.190s" fill="#8bb4ed"/>
+          <rect x="302.8" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.207s"/>
+          <rect x="314.6" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.224s"/>
+          <rect x="326.4" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.241s"/>
+          <rect x="338.2" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.258s" fill="#8bb4ed"/>
+          <rect x="350.0" y="301.4" width="8" height="5" rx=".6" style="--reveal-delay:2.275s"/>
+          <rect x="173.0" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.075s"/>
+          <rect x="184.8" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.092s" fill="#8bb4ed"/>
+          <rect x="196.6" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.109s"/>
+          <rect x="208.4" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.126s"/>
+          <rect x="220.2" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.143s"/>
+          <rect x="232.0" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.160s" fill="#8bb4ed"/>
+          <rect x="243.8" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.177s"/>
+          <rect x="255.6" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.194s"/>
+          <rect x="267.4" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.211s"/>
+          <rect x="279.2" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.228s" fill="#8bb4ed"/>
+          <rect x="291.0" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.245s"/>
+          <rect x="302.8" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.262s"/>
+          <rect x="314.6" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.279s"/>
+          <rect x="326.4" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.296s" fill="#8bb4ed"/>
+          <rect x="338.2" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.313s"/>
+          <rect x="350.0" y="309.0" width="8" height="5" rx=".6" style="--reveal-delay:2.330s"/>
+        </g>
+        <text x="261" y="351" text-anchor="middle" class="memory-vector-label">soft vectors</text>
+        <path class="memory-arrow memory-arrow-out" d="M261 368 V389 M254 381 L261 390 L268 381"/>
+        <g class="memory-answer">
+          <rect x="79" y="413" width="364" height="64" rx="19" fill="white" stroke="#dbe4ef"/>
+          <text x="261" y="454" text-anchor="middle" class="memory-answer-label">Personalized answers</text>
+        </g>
+      </svg>
+    </div>
+
   </section>
   <div class="article-layout">
     <aside class="contents" aria-label="On this page"><p>IN THIS ARTICLE</p><nav><a href="#idea">01 · The idea</a><a href="#method">02 · How it works</a><a href="#results">03 · The results</a><a href="#learning">04 · Learning efficiently</a><a href="#memory">05 · Inside the memory</a><a href="#personalization">06 · A personal answer</a><a href="#takeaway">07 · Takeaways</a><a href="#citation">08 · Citation</a></nav></aside>
